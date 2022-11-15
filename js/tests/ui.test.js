@@ -1,7 +1,8 @@
-const test = require('tape')
+const test = require("tape");
+const UI = require("../ui").UI;
 
-test('main loop', (t) => {
-  /* TODO
+test("main loop", (t) => {
+	/* TODO
     Given the following inputs:
     - hello
     - oto
@@ -12,6 +13,18 @@ test('main loop', (t) => {
     - oto
     - That was a palindrome!
    */
-  t.fail('TODO')
-  t.end()
-})
+	const ui = new UI();
+
+	const hello = ui.mainLoopTest("hello");
+	const oto = ui.mainLoopTest("oto");
+	const quit = ui.mainLoopTest("quit");
+
+	console.log(hello, oto, quit);
+
+	if (hello === "olleh") {
+		t.pass("Test passed");
+	} else {
+		t.fail("Test failed");
+	}
+	t.end();
+});
